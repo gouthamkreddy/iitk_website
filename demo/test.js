@@ -40,4 +40,17 @@ var message = {
 		        filePath: __dirname + '/attachments/inspectocat.jpg',
 		        cid: 'inspectocat@node' // should be as unique as possible
 	    }]
-}
+};
+
+console.log('Sending Mail');
+
+transport.sendMail(message, function(error) {
+	if (error) {
+		console.log('Error occured');
+		console.log(error.message);
+		return;
+	}
+	console.log('Message sent succesfully!');
+	
+	transport.close();
+})
